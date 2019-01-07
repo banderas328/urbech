@@ -1,0 +1,9 @@
+
+body {
+	min-height : 1000px;
+	
+	background-image: url(../images/background.png); 
+}
+.top-contacts {
+	background-image : url(images/phone.png); 
+}
