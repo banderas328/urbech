@@ -4,6 +4,118 @@ body {
 	
 	background-image: url(../images/background.png); 
 }
+
+.header {
+	height : 300px;
+}
+.header .logo img {
+	max-width:250px;
+	margin-top : 20px;
+	
+}
 .top-contacts {
-	background-image : url(images/phone.png); 
+	float:right;
+	margin-top : 100px;
+}
+.top-contacts img {
+	width : 100px;
+} 
+.top-contacts .header-contacts {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 5%;
+}
+.top-contacts .header-contacts .contacts-block {
+	display : block;
+	color:#224f26;
+	font-weight: 600;
+	font-size : 30px;
+	
+}
+ .header-image {
+width : 100%;
+	height: 500px;
+
+	
+}
+
+.header-image-block {margin-top: 35px;
+}
+.header .menu {
+	    color: #224f26;
+    font-size: 35px;
+    clear: both;
+    float: right;
+	
+}
+.header .menu div{
+	color: #224f26;
+	font-size : 35px;
+	display:inline-block;
+	font-weight: 700;
+	padding-right: 40px;
+	
+}
+.top-section .title ,.catalog-section .title , .news-section .title{
+    clear: both;
+    color: #224f26;
+    font-weight: 600;
+    font-size: 35px;
+    text-align: center;
+	
+}
+.top-section .title ,.news-section .title{
+	margin-top: 20px;
+}
+.top-section  , .news-section .text{
+	color:#655f51;
+	margin-top: 5px;
+
+}
+.catalog-section .row {
+	margin-top: 10px;
+}
+.catalog-section .catalog-image {
+    margin-top: 20px;
+    position: relative;
+    left: 10%;
+    width: 210px;
+}
+.news-section .news-image {
+    margin-top: 20px;
+    position: relative;
+    left: 10%;
+    width: 360px;
+}
+
+.news-section  .row div.text {
+	
+	border:1px solid #224f26;
+	margin-left: 6%;
+	border-radius: 10px;
+	margin-top: 25px;
+
+}
+.catalog-section  .row div.text {
+	
+	border:1px solid #224f26;
+	margin-left: 6%;
+	border-radius: 10px;
+
+}
+.catalog-section .text  p.catalog-text , .news-section .text  p.news-text{
+	color:#655f51;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.catalog-section .text  p.catalog-text span , .news-section .text  p.news-text span{
+	
+	color: #224f26;
+	float: right;
+	font-weight: 600;
+	cursor: pointer;
+}
+.news-section .text  p.news-text span {
+	margin-bottom: 20px;
 }
