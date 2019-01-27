@@ -2,7 +2,7 @@
 body {
 	min-height : 1000px;
 	
-	background-image: url(../images/background.png); 
+	background-image: url(../images/background.jpg); 
 }
 
 .header {
@@ -56,30 +56,48 @@ width : 100%;
 	padding-right: 40px;
 	
 }
-.top-section .title ,.catalog-section .title , .news-section .title{
+.top-section .title ,.catalog-section .title , .news-section .title , .recipes-section .title , .images-section .title{
     clear: both;
     color: #224f26;
     font-weight: 600;
     font-size: 35px;
     text-align: center;
+	text-transform: uppercase;
+	margin-top:40px;
 	
 }
-.top-section .title ,.news-section .title{
-	margin-top: 20px;
+.images-section .title {
+	max-width: 67%;
+    margin-left: 50p%;
+    position: relative;
+    left: 15%;
+	margin-top: 40px;
+	text-transform: none;
 }
-.top-section  , .news-section .text{
+
+.top-section .text , .news-section .text{
 	color:#655f51;
 	margin-top: 5px;
 
 }
+.top-section .text {
+	margin-top:30px;
+}
 .catalog-section .row {
 	margin-top: 10px;
 }
-.catalog-section .catalog-image {
+.catalog-section .catalog-image ,.recipes-section .recipes-image {
     margin-top: 20px;
     position: relative;
     left: 10%;
     width: 210px;
+}
+.images-section .images-image {
+width: 60%;
+    margin-top: 25px;
+    display: block;
+    margin: 0;
+    margin-left: 20%;
 }
 .news-section .news-image {
     margin-top: 20px;
@@ -96,20 +114,21 @@ width : 100%;
 	margin-top: 25px;
 
 }
-.catalog-section  .row div.text {
+.catalog-section  .row div.text , .recipes-section .row div.text{
 	
 	border:1px solid #224f26;
 	margin-left: 6%;
 	border-radius: 10px;
+	margin-top:10px;
 
 }
-.catalog-section .text  p.catalog-text , .news-section .text  p.news-text{
+.catalog-section .text  p.catalog-text , .news-section .text  p.news-text , .recipes-section .text  p.recipes-text{
 	color:#655f51;
 	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
-.catalog-section .text  p.catalog-text span , .news-section .text  p.news-text span{
+.catalog-section .text  p.catalog-text span , .news-section .text  p.news-text span ,.recipes-section .text  p.recipes-text span{
 	
 	color: #224f26;
 	float: right;
@@ -118,4 +137,60 @@ width : 100%;
 }
 .news-section .text  p.news-text span {
 	margin-bottom: 20px;
+}
+.text-title {
+	text-align: center;
+	color: #224f26;
+	font-weight: 600;
+	font-size:25px;
+	margin-top: 20px;
+}
+.images-section  .text-title {
+	font-size: 28px;
+	
+}
+.images-section .text {
+	    margin-top: 30px;
+}
+.container .show-more {
+	font-size: 20px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+.footer {
+	border-top : 1px solid #999681;
+	text-align: center;
+	color: #224f26;
+	font-weight: 700;
+	margin-top: 30px;
+}
+.footer img {
+	max-width: 50px;
+}
+.footer .row {
+	margin-top : 15px;
+	
+	
+}
+.footer .last-row {
+	margin-top : 0;
+	margin-bottom: 15px;
+	
+}
+.footer .big {
+	font-size: 25px;
+	
+}
+.footer .footer-right {
+	    text-align: left;
+	margin-left: 25px;
+}
+.footer .footer-right span {
+	padding-left: 20px;
+}
+.ip {
+	margin-top: 28px;
+}
+.footer-title {
+	font-size: 20px;
 }
