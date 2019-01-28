@@ -198,3 +198,69 @@ width: 60%;
 	margin-left: 0;
 	margin-right: 0;
 }
+@media only screen and (max-width: 1200px) {
+.top-contacts .header-contacts {
+    float: right;
+}
+.top-contacts {
+    width: 100%;
+    margin-top: 0;
+    position: relative;
+    bottom: 220px;
+}
+.top-contacts img {
+    position: relative;
+    left: 50%;
+    bottom: 15px;
+}
+.footer .footer-right {
+    text-align: left;
+    margin-left: 30%;
+}
+.footer .footer-right > div:LAST-CHILD {
+	margin-bottom: 30px;
+}
+.header .menu {
+    margin-bottom: 35px;
+}
+.top-section .text {
+    font-size: 35px;
+}
+.catalog-section .text p.catalog-text, .news-section .text p.news-text, .recipes-section .text p.recipes-text {
+    font-size: 35px;
+}
+.catalog-section .text p.catalog-text span, .news-section .text p.news-text span, .recipes-section .text p.recipes-text span {
+    float: none;
+	font-size: 35px;
+}
+.text-title {
+    font-size: 45px;
+}
+.catalog-section .catalog-image, .recipes-section .recipes-image {
+    width: 80%;
+}
+.container .show-more {
+    font-size: 35px;
+}
+.top-section .title, .catalog-section .title, .news-section .title, .recipes-section .title, .images-section .title {
+    font-size: 50px;
+}
+.images-section .title {
+    max-width: 100%;
+    margin-top: 40px;
+    text-transform: none;
+	left:0;
+}
+.images-section .text-title {
+    font-size: 65px;
+}
+.footer-news {
+	font-size: 35px;
+}
+.footer .big {
+    font-size: 35px;
+}
+.news-section .news-image {
+    width: 80%;
+}
+}
