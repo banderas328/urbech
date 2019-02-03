@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import FrontPage
 
-# Create your views here.
+def home(requset):
+    frontPage = FrontPage.objects.filter(title="frontpage")
+
