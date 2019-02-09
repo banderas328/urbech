@@ -1,0 +1,266 @@
+
+body {
+	min-height : 1000px;
+	
+	background-image: url(../images/background.jpg); 
+}
+
+.header {
+	height : 300px;
+}
+.header .logo img {
+	max-width:250px;
+	margin-top : 20px;
+	
+}
+.top-contacts {
+	float:right;
+	margin-top : 100px;
+}
+.top-contacts img {
+	width : 100px;
+} 
+.top-contacts .header-contacts {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 5%;
+}
+.top-contacts .header-contacts .contacts-block {
+	display : block;
+	color:#224f26;
+	font-weight: 600;
+	font-size : 30px;
+	
+}
+ .header-image {
+width : 100%;
+	height: 500px;
+
+	
+}
+
+.header-image-block {margin-top: 35px;
+}
+.header .menu {
+	    color: #224f26;
+    font-size: 35px;
+    clear: both;
+    float: right;
+	
+}
+.header .menu div{
+	color: #224f26;
+	font-size : 35px;
+	display:inline-block;
+	font-weight: 700;
+	padding-right: 40px;
+	
+}
+.top-section .title ,.catalog-section .title , .news-section .title , .recipes-section .title , .images-section .title{
+    clear: both;
+    color: #224f26;
+    font-weight: 600;
+    font-size: 35px;
+    text-align: center;
+	text-transform: uppercase;
+	margin-top:40px;
+	
+}
+.images-section .title {
+	max-width: 67%;
+    margin-left: 50p%;
+    position: relative;
+    left: 15%;
+	margin-top: 40px;
+	text-transform: none;
+}
+
+.top-section .text , .news-section .text{
+	color:#655f51;
+	margin-top: 5px;
+
+}
+.top-section .text {
+	margin-top:30px;
+}
+.catalog-section .row {
+	margin-top: 10px;
+}
+.catalog-section .catalog-image ,.recipes-section .recipes-image {
+    margin-top: 20px;
+    position: relative;
+    left: 10%;
+    width: 210px;
+}
+.images-section .images-image {
+width: 60%;
+    margin-top: 25px;
+    display: block;
+    margin: 0;
+    margin-left: 20%;
+}
+.news-section .news-image {
+    margin-top: 20px;
+    position: relative;
+    left: 10%;
+    width: 360px;
+}
+
+.news-section  .row div.text {
+	
+	border:1px solid #224f26;
+	margin-left: 6%;
+	border-radius: 10px;
+	margin-top: 25px;
+
+}
+.catalog-section  .row div.text , .recipes-section .row div.text{
+	
+	border:1px solid #224f26;
+	margin-left: 6%;
+	border-radius: 10px;
+	margin-top:10px;
+
+}
+.catalog-section .text  p.catalog-text , .news-section .text  p.news-text , .recipes-section .text  p.recipes-text{
+	color:#655f51;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.catalog-section .text  p.catalog-text span , .news-section .text  p.news-text span ,.recipes-section .text  p.recipes-text span{
+	
+	color: #224f26;
+	float: right;
+	font-weight: 600;
+	cursor: pointer;
+}
+.news-section .text  p.news-text span {
+	margin-bottom: 20px;
+}
+.text-title {
+	text-align: center;
+	color: #224f26;
+	font-weight: 600;
+	font-size:25px;
+	margin-top: 20px;
+}
+.images-section  .text-title {
+	font-size: 28px;
+	
+}
+.images-section .text {
+	    margin-top: 30px;
+}
+.container .show-more {
+	font-size: 20px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+.footer {
+	border-top : 1px solid #999681;
+	text-align: center;
+	color: #224f26;
+	font-weight: 700;
+	margin-top: 30px;
+}
+.footer img {
+	max-width: 50px;
+}
+.footer .row {
+	margin-top : 15px;
+	
+	
+}
+.footer .last-row {
+	margin-top : 0;
+	margin-bottom: 15px;
+	
+}
+.footer .big {
+	font-size: 25px;
+	
+}
+.footer .footer-right {
+	    text-align: left;
+	margin-left: 25px;
+}
+.footer .footer-right span {
+	padding-left: 20px;
+}
+.ip {
+	margin-top: 28px;
+}
+.footer-title {
+	font-size: 20px;
+}
+.footer > .row {
+	margin-left: 0;
+	margin-right: 0;
+}
+@media only screen and (max-width: 1200px) {
+.top-contacts .header-contacts {
+    float: right;
+}
+.top-contacts {
+    width: 100%;
+    margin-top: 0;
+    position: relative;
+    bottom: 220px;
+}
+.top-contacts img {
+    position: relative;
+    left: 50%;
+    bottom: 15px;
+}
+.footer .footer-right {
+    text-align: left;
+    margin-left: 30%;
+}
+.footer .footer-right > div:LAST-CHILD {
+	margin-bottom: 30px;
+}
+.header .menu {
+    margin-bottom: 35px;
+}
+.top-section .text {
+    font-size: 35px;
+}
+.catalog-section .text p.catalog-text, .news-section .text p.news-text, .recipes-section .text p.recipes-text {
+    font-size: 35px;
+}
+.catalog-section .text p.catalog-text span, .news-section .text p.news-text span, .recipes-section .text p.recipes-text span {
+    float: none;
+	font-size: 35px;
+}
+.text-title {
+    font-size: 45px;
+}
+.catalog-section .catalog-image, .recipes-section .recipes-image {
+    width: 80%;
+}
+.container .show-more {
+    font-size: 35px;
+}
+.top-section .title, .catalog-section .title, .news-section .title, .recipes-section .title, .images-section .title {
+    font-size: 50px;
+}
+.images-section .title {
+    max-width: 100%;
+    margin-top: 40px;
+    text-transform: none;
+	left:0;
+}
+.images-section .text-title {
+    font-size: 65px;
+}
+.footer-news {
+	font-size: 35px;
+}
+.footer .big {
+    font-size: 35px;
+}
+.news-section .news-image {
+    width: 80%;
+}
+}

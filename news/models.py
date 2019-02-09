@@ -1,7 +1,7 @@
 from django.db import models
 
 class News(models.Model):
-    newsTitle = models.CharField(max_length=250)
+    title = models.CharField(max_length=250)
     newsText = models.TextField()
     newsImage = models.ImageField(upload_to='images/')
 

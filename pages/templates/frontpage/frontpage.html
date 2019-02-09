@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+     {% load staticfiles %}
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+<link href="media/css/bootstrap.min.css" rel="stylesheet">
+<link href="media/css/styles.css" rel="stylesheet">
+    <script type="text/javascript" src="media/js/jquery.js"></script>
+<script type="text/javascript" src="media/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container header">
+    <div class="row">
+    	<div class="logo col-md-3">
+    	<img src="media/images/logo.png">
+    	</div>
+    	<div class="top-contacts  col-md-4">
+    		<img src="media/images/phone.png">
+	    		<div class="header-contacts">
+	    			<div class="contacts-block">+375257197002</div>
+	    			<div class="contacts-block">+375257197002</div>
+	    		</div>
+	    </div>
+	    <div class="menu">
+	    	    <div>КАТАЛОГ</div>
+	    	    <div>НОВОСТИ</div>
+	    	    <div>РЕЦЕПТЫ</div>
+	    	</div>
+    </div>
+</div>
+  <div class="header-image-block">
+          <div>&nbsp;
+          <img  src="media/images/header.png"  class="header-image"/>
+          </div>
+ </div>
+   <div class="container top-section">
+   		<div class="row">
+   			   <div class='col-md-12 title'>{{ frontpage.topTextTitle }}</div>
+   			<div class='col-md-12 text' >{{ frontpage.topText }}
+   			  </div>
+   		</div>
+   </div>
+<div class="catalog-section container">
+   		<div class="row">
+   			<div class='col-md-12 title'>Каталог</div>
+   		</div>
+   		<div class="row">
+			{% for product in catalog %}
+			<div class='col-md-3 text'>
+					<img src="media/{{product.catalogImage}}"  class="catalog-image">
+		   			<p class="text-title">
+                           {{ product.title }}
+		   			 </p>
+					<p class="catalog-text">{{product.catalogText|truncatechars_html:200}}
+		   			  <span>читать далее....</span>
+		   			 </p>
+					</div>
+			{% endfor %}
+		   </div>
+		   <div class="row">
+   			<div class='col-md-12 title show-more'>ПОКАЗАТЬ ЕЩЕ</div>
+   		</div>
+</div>
+<div class="news-section container">
+   		<div class="row">
+   			<div class='col-md-12 title'>Новости</div>
+   		</div>
+   		<div class="row">
+			{% for record in news %}
+					   		<div class='col-md-5 text'>
+		   		<img src="media/{{record.newsImage}}"  class="news-image">
+		   		<p class="text-title">
+                           {{ record.title }}
+		   			 </p>
+
+		   		<p class="news-text">{{record.newsText|truncatechars_html:285}}
+		   			  <span>читать далее....</span>
+
+		   			 </p>
+		   		</div>
+			{% endfor %}
+		   </div>
+		    <div class="row">
+   			<div class='col-md-12 title show-more'>ПОКАЗАТЬ ЕЩЕ</div>
+   		</div>
+</div>
+<div class="recipes-section container">
+   		<div class="row">
+   			<div class='col-md-12 title'>Рецепты</div>
+   		</div>
+   		<div class="row">
+			{% for recipe in recipes %}
+			   	   		<div class='col-md-3 text'>
+		   		<img src="media/{{recipe.recipesImage }}"  class="recipes-image">
+		   		<p class="text-title">
+                           {{recipe.title }}
+		   			 </p>
+		   		<p class="recipes-text">{{recipe.recipesText|truncatechars_html:200}}
+		   			  <span>читать далее....</span>
+
+		   			 </p>
+		   		</div>
+			{% endfor %}
+		   </div>
+		   <div class="row">
+   			<div class='col-md-12 title show-more'>ПОКАЗАТЬ ЕЩЕ</div>
+   		</div>
+
+</div>
+<div class="images-section container">
+   		<div class="row">
+   			<div class='col-md-12 title'>{{ frontpage.bottomBlockText }}</div>
+   		</div>
+   		<div class="row">
+		   		<div class='col-md-3 text'>
+		   		<img src="media/{{ frontpage.bottomImage1 }}"  class="images-image">
+		   		<p class="text-title">{{ frontpage.bottomImage1Text }}
+	   			 </p>
+		   		</div>
+		   		<div class='col-md-3 text' >
+		   		<img src="media/{{ frontpage.bottomImage2 }}"  class="images-image">
+		   		<p class="text-title">{{ frontpage.bottomImage2Text }}
+
+		   		</p>
+		   		</div>
+		   		<div class='col-md-3 text'>
+		   		<img src="media/{{ frontpage.bottomImage3 }}"  class="images-image">
+		   		<p class="text-title">{{ frontpage.bottomImage3Text }}
+
+     			</p>
+		   		</div>
+		   		<div class='col-md-3 text'>
+		   		<img src="media/{{ frontpage.bottomImage4 }}"  class="images-image">
+		   		<p class="text-title">{{ frontpage.bottomImage4Text }}
+
+	   			</p>
+		   		</div>
+		   </div>
+
+</div>
+<div class="footer ">
+
+   		<div class="row">
+		   		<div class='col-md-4'>
+		   		</div>
+		   		<div class='col-md-4'>
+		   		<div class="row">
+		   			<div class='col-md-12 footer-news'>
+		   			Подписывайтесь и следите за нашими новостями
+		   			</div>
+		   		</div>
+		   		<div class="row">
+		   			<div class='col-md-12'>
+		   			<a href="#"><img src="media/images/icons/facebook.png"></a>
+		   			<a href="#"><img src="media/images/icons/instagram.png"></a>
+		   			<a href="#"><img src="media/images/icons/vk.png"></a>
+		   			</div>
+		   		</div>
+		   		<div class="row">
+			   			<div class='col-md-12 big ip'>
+			   			ИП "УРБАНАТ"
+			   			</div>
+		   		</div>
+
+		   		<div class="row last-row">
+			   			<div class='col-md-12 big'>
+			   			www.urbanat.by
+			   			</div>
+		   		</div>
+		   		<div class='col-md-4'>
+		   		</div>
+
+		   </div>
+		   <div class='col-md-3'>
+		   <div class="row footer-right">
+		   			<div class='col-md-12 big'>
+		   			<img src="media/images/icons/skype.png"><span> URBANAT</span>
+		   			</div>
+		   		</div>
+		   		<div class="row footer-right">
+		   			<div class='col-md-12 big'>
+		   			<img src="media/images/icons/whatsup.png"><span> +375 25 000 00 00</span>
+		   			</div>
+		   		</div>
+		   		<div class="row footer-right">
+		   			<div class='col-md-12  big'>
+		   			<img src="media/images/icons/telegram.png"><span> +375 25 000 00 00</span>
+		   			</div>
+		   		</div>
+		   </div>
+</div>
+</div>
+</body>
+</html>

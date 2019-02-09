@@ -1,7 +1,7 @@
 from django.db import models
 
 class Recipes(models.Model):
-    recipesTitle = models.CharField(max_length=250)
+    title = models.CharField(max_length=250)
     recipesText = models.TextField()
     recipesImage = models.ImageField(upload_to='images/')
 
