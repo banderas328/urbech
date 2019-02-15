@@ -1,0 +1,12 @@
+<div class="row news-container">{% for record in news %}
+		   		<div class='col-md-5 text'>
+		   		<img src="media/{{record.newsImage}}"  class="news-image">
+		   		<p class="text-title">
+                   {{ record.title }}
+		   			 </p>
+		   		<p class="news-text" idnews="{{ record.id }}">{{record.newsText|truncatechars_html:285}}
+		   			  <span>читать далее....</span>
+
+		   			 </p>
+		   		</div>
+			{% endfor %}</div>

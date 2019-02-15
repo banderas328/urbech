@@ -61,11 +61,11 @@
 			{% endfor %}
 		   </div>
 		   <div class="row">
-   			<div class='col-md-12 title show-more'>ПОКАЗАТЬ ЕЩЕ</div>
+   			<div class='col-md-12 title show-more' id="productmore">ПОКАЗАТЬ ЕЩЕ</div>
    		</div>
 </div>
 <div class="news-section container">
-   		<div class="row">
+   		<div class="row news-container">
    			<div class='col-md-12 title'>Новости</div>
    		</div>
    		<div class="row">
@@ -76,15 +76,15 @@
                            {{ record.title }}
 		   			 </p>
 
-		   		<p class="news-text">{{record.newsText|truncatechars_html:285}}
+		   		<p class="news-text" idnews="{{ record.id }}">{{record.newsText|truncatechars_html:285}}
 		   			  <span>читать далее....</span>
 
 		   			 </p>
 		   		</div>
 			{% endfor %}
 		   </div>
-		    <div class="row">
-   			<div class='col-md-12 title show-more'>ПОКАЗАТЬ ЕЩЕ</div>
+		    <div class="row" id="beforemorenews">
+   			<div class='col-md-12 title show-more' id="newsmore">ПОКАЗАТЬ ЕЩЕ</div>
    		</div>
 </div>
 <div class="recipes-section container">
@@ -106,7 +106,7 @@
 			{% endfor %}
 		   </div>
 		   <div class="row">
-   			<div class='col-md-12 title show-more'>ПОКАЗАТЬ ЕЩЕ</div>
+   			<div class='col-md-12 title show-more' id="recipesmore">ПОКАЗАТЬ ЕЩЕ</div>
    		</div>
 
 </div>
@@ -193,5 +193,39 @@
 		   </div>
 </div>
 </div>
+{% csrf_token %}
+<script type="text/javascript">
+
+
+$(function(){
+
+$("#newsmore").bind("click", function(){
+console.info("{% csrf_token %}");
+max_news_id = 0;
+ $('.news-section .news-text').each(function() {
+  var value = parseInt($(this).attr("idnews"));
+  max_news_id = (value > max_news_id) ? value : max_news_id;
+});
+console.info(max_news_id);
+var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+ console.info(csrftoken);
+$.post( "getmorenews", { news_id: max_news_id , csrfmiddlewaretoken : csrftoken})
+  .done(function( data ) {
+   console.info(data);
+   $( data ).insertBefore( "#beforemorenews" );
+   if(data == '<div class="row news-container"></div>') {$('#newsmore').text("больше нет :)");}
+
+  });
+
+});
+$("#productmore").bind("click", function(){
+alert("products");
+});
+recipesmore
+$("#recipesmore").bind("click", function(){
+alert("recipes");
+});
+});
+</script>
 </body>
 </html>
