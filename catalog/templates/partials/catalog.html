@@ -5,7 +5,7 @@
                            {{ product.title }}
 		   			 </p>
 					<p class="catalog-text" idproduct="{{ product.id }}">{{product.catalogText|truncatechars_html:200}}
-		   			  <span>читать далее....</span>
+		   			  <span class="get-entity" entity-type="product" entity-id="{{ product.id }}">читать далее....</span>
 		   			 </p>
 					</div>
 			{% endfor %}</div>

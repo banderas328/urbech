@@ -12,5 +12,6 @@ urlpatterns = [
     path('getmorenews', news.views.getmorenews, name='getmorenews'),
     path('getmoreproducts', catalog.views.getmoreproducts, name='getmoreproducts'),
     path('getmorerecipes', recipes.views.getmorerecipes, name='getmorerecipes'),
+    path('getentity', pages.views.getentity, name='getentity'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,7 +5,7 @@
                    {{ record.title }}
 		   			 </p>
 		   		<p class="news-text" idnews="{{ record.id }}">{{record.newsText|truncatechars_html:285}}
-		   			  <span>читать далее....</span>
+		   			  <span class="get-entity" entity-type="news" entity-id="{{ record.id }}">читать далее....</span>
 
 		   			 </p>
 		   		</div>

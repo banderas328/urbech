@@ -6,8 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
 <link href="media/css/bootstrap.min.css" rel="stylesheet">
+	<link href="media/css/jquery-ui.min.css" rel="stylesheet">
+	<link href="media/css/jquery-ui.theme.css" rel="stylesheet">
 <link href="media/css/styles.css" rel="stylesheet">
     <script type="text/javascript" src="media/js/jquery.js"></script>
+    <script type="text/javascript" src="media/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="media/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -55,7 +58,7 @@
                            {{ product.title }}
 		   			 </p>
 					<p class="catalog-text" idproduct="{{ product.id }}">{{product.catalogText|truncatechars_html:200}}
-		   			  <span>читать далее....</span>
+		   			  <span class="get-entity" entity-type="product" entity-id="{{ product.id }}">читать далее....</span>
 		   			 </p>
 					</div>
 			{% endfor %}
@@ -77,7 +80,7 @@
 		   			 </p>
 
 		   		<p class="news-text" idnews="{{ record.id }}">{{record.newsText|truncatechars_html:285}}
-		   			  <span>читать далее....</span>
+		   			  <span class="get-entity" entity-type="news" entity-id="{{ record.id }}">читать далее....</span>
 
 		   			 </p>
 		   		</div>
@@ -99,7 +102,7 @@
                            {{recipe.title }}
 		   			 </p>
 		   		<p class="recipes-text" idrecipes="{{recipe.id}}">{{recipe.recipesText|truncatechars_html:200}}
-		   			  <span>читать далее....</span>
+		   			  <span class="get-entity" entity-type="recipe" entity-id="{{recipe.id}}">читать далее....</span>
 
 		   			 </p>
 		   		</div>
@@ -246,7 +249,29 @@ $.post( "getmorerecipes", { recipe_id: max_recipe_id , csrfmiddlewaretoken : csr
 });
 
 
+ $(".get-entity").on("click" , function(){
+ var entity_type = $(this).attr("entity-type");
+ var entity_id = $(this).attr("entity-id");
+ var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+ $.post( "getentity", { entity_type: entity_type , entity_id : entity_id , csrfmiddlewaretoken : csrftoken})
+  .done(function( data ) {
+  var width = $( window ).width();
+  $("#dialog").html(data);
+   $( "#dialog" ).dialog({
+   		width: width,
+        height: 500,
+        modal: true,
+        });
+  });
+
+
+ });
+
+
 });
 </script>
 </body>
+<div id="dialog">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
 </html>
