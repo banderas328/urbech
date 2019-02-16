@@ -47,21 +47,21 @@
    		<div class="row">
    			<div class='col-md-12 title'>Каталог</div>
    		</div>
-   		<div class="row">
+   		<div class="row catalog-container">
 			{% for product in catalog %}
 			<div class='col-md-3 text'>
 					<img src="media/{{product.catalogImage}}"  class="catalog-image">
 		   			<p class="text-title">
                            {{ product.title }}
 		   			 </p>
-					<p class="catalog-text">{{product.catalogText|truncatechars_html:200}}
+					<p class="catalog-text" idproduct="{{ product.id }}">{{product.catalogText|truncatechars_html:200}}
 		   			  <span>читать далее....</span>
 		   			 </p>
 					</div>
 			{% endfor %}
 		   </div>
-		   <div class="row">
-   			<div class='col-md-12 title show-more' id="productmore">ПОКАЗАТЬ ЕЩЕ</div>
+		   <div class="row" id="beforemoreproducts">
+   			<div class='col-md-12 title show-more' id="productsmore">ПОКАЗАТЬ ЕЩЕ</div>
    		</div>
 </div>
 <div class="news-section container">
@@ -98,14 +98,14 @@
 		   		<p class="text-title">
                            {{recipe.title }}
 		   			 </p>
-		   		<p class="recipes-text">{{recipe.recipesText|truncatechars_html:200}}
+		   		<p class="recipes-text" idrecipes="{{recipe.id}}">{{recipe.recipesText|truncatechars_html:200}}
 		   			  <span>читать далее....</span>
 
 		   			 </p>
 		   		</div>
 			{% endfor %}
 		   </div>
-		   <div class="row">
+		   <div class="row" id="beforemorerecipes">
    			<div class='col-md-12 title show-more' id="recipesmore">ПОКАЗАТЬ ЕЩЕ</div>
    		</div>
 
@@ -195,36 +195,57 @@
 </div>
 {% csrf_token %}
 <script type="text/javascript">
-
-
 $(function(){
-
 $("#newsmore").bind("click", function(){
-console.info("{% csrf_token %}");
 max_news_id = 0;
  $('.news-section .news-text').each(function() {
   var value = parseInt($(this).attr("idnews"));
   max_news_id = (value > max_news_id) ? value : max_news_id;
 });
-console.info(max_news_id);
 var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
- console.info(csrftoken);
 $.post( "getmorenews", { news_id: max_news_id , csrfmiddlewaretoken : csrftoken})
   .done(function( data ) {
-   console.info(data);
+   if(data == '<div class="row"></div>') {$('#newsmore').text("больше нет :)");}
+   else {
    $( data ).insertBefore( "#beforemorenews" );
-   if(data == '<div class="row news-container"></div>') {$('#newsmore').text("больше нет :)");}
+   }
+  });
+});
+$("#productsmore").bind("click", function(){
+max_product_id = 0;
+$('.catalog-section .catalog-text').each(function() {
+var value = parseInt($(this).attr("idproduct"));
+max_product_id = (value > max_product_id) ? value : max_product_id;
+});
+var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+$.post( "getmoreproducts", { product_id: max_product_id , csrfmiddlewaretoken : csrftoken})
+  .done(function( data ) {
+   if(data == '<div class="row"></div>') {$('#productsmore').text("больше нет :)");}
+   else {
+    $( data ).insertBefore( "#beforemoreproducts" );
+   }
+  });
+});
 
+$("#recipesmore").bind("click", function(){
+max_recipe_id = 0;
+$('.recipes-section .recipes-text').each(function() {
+var value = parseInt($(this).attr("idrecipes"));
+max_recipe_id = (value > max_recipe_id) ? value : max_recipe_id;
+});
+var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+$.post( "getmorerecipes", { recipe_id: max_recipe_id , csrfmiddlewaretoken : csrftoken})
+  .done(function( data ) {
+   if(data == '<div class="row"></div>') {$('#recipesmore').text("больше нет :)");}
+   else {
+    $( data ).insertBefore( "#beforemorerecipes" );
+   }
   });
 
+
 });
-$("#productmore").bind("click", function(){
-alert("products");
-});
-recipesmore
-$("#recipesmore").bind("click", function(){
-alert("recipes");
-});
+
+
 });
 </script>
 </body>

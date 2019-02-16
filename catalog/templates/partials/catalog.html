@@ -1,0 +1,11 @@
+<div class="row">{% for product in catalog %}
+			<div class='col-md-3 text'>
+					<img src="media/{{product.catalogImage}}"  class="catalog-image">
+		   			<p class="text-title">
+                           {{ product.title }}
+		   			 </p>
+					<p class="catalog-text" idproduct="{{ product.id }}">{{product.catalogText|truncatechars_html:200}}
+		   			  <span>читать далее....</span>
+		   			 </p>
+					</div>
+			{% endfor %}</div>

@@ -1,0 +1,12 @@
+<div class="row">{% for recipe in recipes %}
+			   	   		<div class='col-md-3 text'>
+		   		<img src="media/{{recipe.recipesImage }}"  class="recipes-image">
+		   		<p class="text-title">
+                           {{recipe.title }}
+		   			 </p>
+		   		<p class="recipes-text" idrecipes="{{recipe.id}}">{{recipe.recipesText|truncatechars_html:200}}
+		   			  <span>читать далее....</span>
+
+		   			 </p>
+		   		</div>
+			{% endfor %}</div>
