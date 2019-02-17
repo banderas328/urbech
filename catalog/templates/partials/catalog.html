@@ -1,6 +1,6 @@
 <div class="row">{% for product in catalog %}
 			<div class='col-md-3 text'>
-					<img src="media/{{product.catalogImage}}"  class="catalog-image">
+					<img src="media/{{product.catalogImage}}"  class="catalog-image" title="{{ product.title }}">
 		   			<p class="text-title">
                            {{ product.title }}
 		   			 </p>

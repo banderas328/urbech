@@ -1,6 +1,6 @@
 <div class="row">{% for record in news %}
 		   		<div class='col-md-5 text'>
-		   		<img src="media/{{record.newsImage}}"  class="news-image">
+		   		<img src="media/{{record.newsImage}}"  class="news-image" title="{{ record.title }}">
 		   		<p class="text-title">
                    {{ record.title }}
 		   			 </p>
