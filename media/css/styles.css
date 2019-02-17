@@ -199,29 +199,43 @@ width: 60%;
 	margin-right: 0;
 }
 @media only screen and (max-width: 1200px) {
+.footer .footer-right span {
+     padding-left: 0;
+}
+.header .logo img {
+     max-width: none;
+
+}
+.news-section .row div.text, .catalog-section .row div.text , .recipes-section .row div.text{
+   margin-left: 0;
+   border : none;
+
+
+}
 .top-contacts .header-contacts {
-    float: right;
+    margin-left: 10%;
+    float:none;
 }
 .top-contacts {
     width: 100%;
     margin-top: 0;
     position: relative;
-    bottom: 220px;
+    top: 40px;
 }
 .top-contacts img {
-    position: relative;
-    left: 50%;
-    bottom: 15px;
+  display: none;
 }
 .footer .footer-right {
-    text-align: left;
-    margin-left: 30%;
+   text-align: left;
+    margin-left: -2%;
 }
 .footer .footer-right > div:LAST-CHILD {
 	margin-bottom: 30px;
 }
 .header .menu {
-    margin-bottom: 35px;
+        margin-bottom: 35px;
+    margin-top: 65px;
+    padding-left: 25%;
 }
 .top-section .text {
     font-size: 35px;
@@ -243,7 +257,7 @@ width: 60%;
     font-size: 35px;
 }
 .top-section .title, .catalog-section .title, .news-section .title, .recipes-section .title, .images-section .title {
-    font-size: 50px;
+    font-size: 40px;
 }
 .images-section .title {
     max-width: 100%;
@@ -252,7 +266,7 @@ width: 60%;
 	left:0;
 }
 .images-section .text-title {
-    font-size: 65px;
+        font-size: 38px;
 }
 .footer-news {
 	font-size: 35px;
@@ -263,4 +277,69 @@ width: 60%;
 .news-section .news-image {
     width: 80%;
 }
+}
+#dialog {
+display:none;
+background-image: url(../images/background.jpg);
+    color: #655f51;
+}
+.ui-widget-overlay {
+
+     background: black url(images/ui-bg_diagonal-maze_20_6e4f1c_10x10.png) 50% 50% repeat;
+    opacity: .6;}
+    #dialog img{
+   margin: auto;
+  width: 30%;
+  padding: 10px;
+  display:block;
+    }
+    .ui-dialog-titlebar {
+       background-image: url(../images/background.jpg);
+    border: none;
+
+    }
+    #dialog h1 {
+    color:#224f26;
+    text-align:center;
+    }
+    .ui-dialog .ui-dialog-titlebar-close {
+
+background-image: url(../images/close.png);
+    width: 75px;
+    height: 75px;
+    background-size: 75px;
+    z-index: 999;
+    background-color:rgba(51, 170, 51, .0);
+    border:none;
+    outline:0;
+            position: relative;
+    bottom: 50px;
+    right: -100px;
+}
+#dialog span {
+color: #224f26;
+    font-size: 30px;
+    font-weight: 700;
+}
+#dialog span:first-child {
+margin-left:20%;
+}
+#dialog span:last-child {
+margin-right:20%;
+}
+@media only screen and (max-width: 1200px) {
+ .ui-dialog .ui-dialog-titlebar-close {
+background-image: url(../images/close.png);
+
+
+    right: -85%;
+}
+ #dialog img{
+
+  width: 80%;
+
+    }
+}
+#news, #catalog , #recipes {
+cursor:pointer;
 }

@@ -2,6 +2,7 @@ from django.db import models
 
 class FrontPage(models.Model):
     title = models.CharField(max_length=250,default='null')
+    description = models.CharField(max_length=250, default='null')
     topTextTitle = models.CharField(max_length=250,default='null')
     topText = models.TextField()
     bottomBlockText = models.CharField(max_length=250,default='null')

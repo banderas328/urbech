@@ -7,7 +7,7 @@ import news.views
 import catalog.views
 import recipes.views
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin31337/', admin.site.urls),
     path('', pages.views.home, name='home'),
     path('getmorenews', news.views.getmorenews, name='getmorenews'),
     path('getmoreproducts', catalog.views.getmoreproducts, name='getmoreproducts'),

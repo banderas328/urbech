@@ -2,9 +2,11 @@
 <html>
 <head>
      {% load staticfiles %}
+	<title>urbanat.by</title>
       <meta charset="utf-8">
+	<link rel="icon" href="media/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="{{ frontpage.description }}">
 <link href="media/css/bootstrap.min.css" rel="stylesheet">
 	<link href="media/css/jquery-ui.min.css" rel="stylesheet">
 	<link href="media/css/jquery-ui.theme.css" rel="stylesheet">
@@ -28,9 +30,9 @@
 	    		</div>
 	    </div>
 	    <div class="menu">
-	    	    <div>КАТАЛОГ</div>
-	    	    <div>НОВОСТИ</div>
-	    	    <div>РЕЦЕПТЫ</div>
+	    	    <div id="catalog">КАТАЛОГ</div>
+	    	    <div id="news">НОВОСТИ</div>
+	    	    <div id="recipes">РЕЦЕПТЫ</div>
 	    	</div>
     </div>
 </div>
@@ -48,7 +50,7 @@
    </div>
 <div class="catalog-section container">
    		<div class="row">
-   			<div class='col-md-12 title'>Каталог</div>
+   			<div class='col-md-12 title' id="catalogblock">Каталог</div>
    		</div>
    		<div class="row catalog-container">
 			{% for product in catalog %}
@@ -69,7 +71,7 @@
 </div>
 <div class="news-section container">
    		<div class="row news-container">
-   			<div class='col-md-12 title'>Новости</div>
+   			<div class='col-md-12 title' id="newsblock">Новости</div>
    		</div>
    		<div class="row">
 			{% for record in news %}
@@ -92,12 +94,12 @@
 </div>
 <div class="recipes-section container">
    		<div class="row">
-   			<div class='col-md-12 title'>Рецепты</div>
+   			<div class='col-md-12 title' id="recipesblock">Рецепты</div>
    		</div>
    		<div class="row">
 			{% for recipe in recipes %}
 			   	   		<div class='col-md-3 text'>
-		   		<img src="media/{{recipe.recipesImage }}"  class="recipes-image">
+		   		<img src="media/{{recipe.recipesImage }}"  class="recipes-image" title="{{recipe.title }}">
 		   		<p class="text-title">
                            {{recipe.title }}
 		   			 </p>
@@ -199,16 +201,41 @@
 {% csrf_token %}
 <script type="text/javascript">
 $(function(){
+
+$("#catalog").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#catalogblock").offset().top
+    }, 2000);
+});
+$("#news").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#newsblock").offset().top
+    }, 2000);
+});
+$("#recipes").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#recipesblock").offset().top
+    }, 2000);
+});
+
+
 $("#newsmore").bind("click", function(){
-max_news_id = 0;
+min_news_id = 0;
+var first_news_steps = true;
  $('.news-section .news-text').each(function() {
   var value = parseInt($(this).attr("idnews"));
-  max_news_id = (value > max_news_id) ? value : max_news_id;
+  if(first_news_steps) {
+  min_news_id = value;
+  first_news_steps  = false;
+  }
+  else {
+  min_news_id = (value < min_news_id) ? value : min_news_id;
+  }
 });
 var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
-$.post( "getmorenews", { news_id: max_news_id , csrfmiddlewaretoken : csrftoken})
+$.post( "getmorenews", { news_id: min_news_id , csrfmiddlewaretoken : csrftoken})
   .done(function( data ) {
-   if(data == '<div class="row"></div>') {$('#newsmore').text("больше нет :)");}
+   if(data == '<div class="row"></div>') {$('#newsmore').text("больше новостей нет :)");}
    else {
    $( data ).insertBefore( "#beforemorenews" );
    }
@@ -223,7 +250,7 @@ max_product_id = (value > max_product_id) ? value : max_product_id;
 var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
 $.post( "getmoreproducts", { product_id: max_product_id , csrfmiddlewaretoken : csrftoken})
   .done(function( data ) {
-   if(data == '<div class="row"></div>') {$('#productsmore').text("больше нет :)");}
+   if(data == '<div class="row"></div>') {$('#productsmore').text("больше товаров нет :)");}
    else {
     $( data ).insertBefore( "#beforemoreproducts" );
    }
@@ -239,7 +266,7 @@ max_recipe_id = (value > max_recipe_id) ? value : max_recipe_id;
 var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
 $.post( "getmorerecipes", { recipe_id: max_recipe_id , csrfmiddlewaretoken : csrftoken})
   .done(function( data ) {
-   if(data == '<div class="row"></div>') {$('#recipesmore').text("больше нет :)");}
+   if(data == '<div class="row"></div>') {$('#recipesmore').text("больше рецептов нет :)");}
    else {
     $( data ).insertBefore( "#beforemorerecipes" );
    }
@@ -249,20 +276,29 @@ $.post( "getmorerecipes", { recipe_id: max_recipe_id , csrfmiddlewaretoken : csr
 });
 
 
- $(".get-entity").on("click" , function(){
+ $('body').on('click', '.get-entity', function() {
  var entity_type = $(this).attr("entity-type");
  var entity_id = $(this).attr("entity-id");
  var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
  $.post( "getentity", { entity_type: entity_type , entity_id : entity_id , csrfmiddlewaretoken : csrftoken})
   .done(function( data ) {
   var width = $( window ).width();
+  if(width > 1200) {
+  width = 1200;
+  }
+  <!--var title = $(data).find("h1").text();-->
+  <!--$("#dialog").attr("title",title);-->
   $("#dialog").html(data);
    $( "#dialog" ).dialog({
    		width: width,
-        height: 500,
+        <!--height: 500,-->
         modal: true,
+        closeText: "закрыть"
         });
   });
+
+
+
 
 
  });
